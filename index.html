@@ -72,6 +72,8 @@ h2{font-family:"Shippori Mincho",serif;font-size:24px;margin:30px 0 10px}
 .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .links a{font-size:12.5px;text-decoration:none;color:var(--tokyo);background:#eef2fa;border:1px solid #d6e0f2;border-radius:999px;padding:3px 10px;white-space:nowrap}
 .links a:hover{background:#dfe8f8}
+.links a.book{background:#fde9e3;border-color:#f3c2b4;color:#9b2a14;font-weight:700}
+.panel label a{color:var(--red);font-weight:700;text-decoration:none;white-space:nowrap}
 .maplink{font-size:12.5px;color:var(--tokyo);text-decoration:none;margin-left:6px;white-space:nowrap}
 .maplink:hover{text-decoration:underline}
 .daynote{background:#f3eee3;border-radius:10px;padding:10px 12px;font-size:13.5px;margin-top:10px}
@@ -248,7 +250,7 @@ const DAYS=[
   ["09:00","Meiji Jingu shrine","Peaceful forest shrine. Go early.","s","Meiji Jingu"],
   ["10:30","Takeshita Street & Omotesando","Crêpes, quirky fashion, then the elegant Omotesando avenue.","s","Takeshita Street Harajuku"],
   ["14:00","Shibuya Crossing & Hachikō","Watch the scramble crossing from the Starbucks or the Shibuya Sky deck.","s","Shibuya Scramble Crossing"],
-  ["16:00","Shibuya Sky at sunset (optional)","Book a sunset slot in advance, since these sell out.","s","Shibuya Sky"],
+  ["16:00","Shibuya Sky at sunset (optional)","Book a sunset slot in advance, since these sell out. Online tickets open about 4 weeks ahead (around 25 Nov for this date). The official site often rejects foreign cards; Klook accepts them.","s","Shibuya Sky"],
   ["18:30","Early dinner","Eat before the show. Try chanko-nabe, the sumo wrestlers' hotpot.","s",""],
   ["20:00","Sumo show with drink & photo","Arrive 20–30 min early. Have the ticket QR ready.","b",""]],
   note:"Check how long it takes to get from Shibuya to the sumo venue, and leave a buffer."},
@@ -273,7 +275,7 @@ const DAYS=[
  {id:"d1227",date:"2026-12-27",city:"tokyo",title:"Yokohama: Nissan Gallery & harbour",tags:["Motor","Day trip"],stops:[
   ["09:30","Train to Yokohama","About 30–40 min from Shinjuku (JR Shonan-Shinjuku line).","s","Yokohama Station"],
   ["10:00","🏎 Nissan Global Headquarters Gallery","Free, no reservation. A 7-min walk from Yokohama Station east exit. Weekend hours 10:00–20:00. New models, concept cars and heritage cars, and you can sit in most of them. Closed 28 Dec–1 Jan and 4 Jan, so today is the day.","s","Nissan Global Headquarters Gallery"],
-  ["12:00","Minato Mirai · Cup Noodles Museum","Design your own cup noodle. Check the museum's year-end hours.","s","Cup Noodles Museum Yokohama"],
+  ["12:00","Minato Mirai · Cup Noodles Museum","Design your own cup noodle (My CUPNOODLES Factory). Closed Tuesdays. Check the museum's year-end hours.","s","Cup Noodles Museum Yokohama"],
   ["14:00","Red Brick Warehouse & Yamashita Park","","s","Yokohama Red Brick Warehouse"],
   ["16:00","Yokohama Chinatown","Japan's biggest Chinatown, good for dinner and street food.","s","Yokohama Chinatown"],
   ["Eve","Minato Mirai night view → back to Shinjuku","","s","Minato Mirai"]],
@@ -348,22 +350,36 @@ const DAYS=[
   ["—","Flight to Istanbul ✈","İyi yolculuklar, Mine & Carmine! ♡","b","Narita Airport Terminal 1"]]}
 ];
 const TODO=[
- "Locate the sumo show venue and plan the route from Shibuya on 23 Dec",
- "Book Shibuya Sky sunset slot (23 Dec)",
- "Reserve Christmas Eve dinner (24 Dec)",
- "Check Fuji tour meeting time at Tokyo Mode Gakuen (25 Dec)",
- "Optional: try to book Nissan Heritage Collection tour, Zama (weekday)",
- "Check baggage allowance on both domestic flights",
- "Plan NYE route + last trains in Osaka (31 Dec)",
- "Reserve Kobe beef lunch (5 Jan)",
- "Buy JR Haruka / ICOCA & Haruka for 7 Jan",
- "Check Narita Tobu Hotel shuttle times",
- "Online check-in for the Istanbul flight (8 Jan)",
- "eSIM / pocket Wi-Fi + mobile Suica",
- "Check smartEX email ~5 Dec: Nozomi 5 times confirmed (5 Jan)",
- "Get a Wise/Revolut card + tell your bank you're travelling",
- "Travel insurance & a copy of passports"
+ ["Register on Visit Japan Web (immigration & customs QR, tax-free QR)","https://vjw-lp.digital.go.jp/en/"],
+ ["Locate the sumo show venue and plan the route from Shibuya on 23 Dec"],
+ ["Book Shibuya Sky sunset slot for 23 Dec (opens ~25 Nov)","https://www.shibuya-scramble-square.com/sky/"],
+ ["Reserve Christmas Eve dinner (24 Dec)"],
+ ["Check Fuji tour meeting time at Tokyo Mode Gakuen (25 Dec)"],
+ ["Optional: book Nissan Heritage Collection tour, Zama (weekday)","https://coubic.com/nissan-heritage-tour"],
+ ["Optional: Tokyo Skytree timed tickets (22 Dec)","https://www.tokyo-skytree.jp/"],
+ ["Check baggage allowance on both domestic flights"],
+ ["Plan NYE route + last trains in Osaka (31 Dec)"],
+ ["Reserve Kobe beef lunch (5 Jan)"],
+ ["Check smartEX email ~5 Dec: Nozomi 5 times confirmed (5 Jan)"],
+ ["Buy ICOCA & Haruka for the KIX trip on 7 Jan","https://www.westjr.co.jp/global/en/ticket/icoca-haruka/"],
+ ["Check Narita Tobu Hotel shuttle times"],
+ ["Online check-in for the Istanbul flight (8 Jan)"],
+ ["eSIM / pocket Wi-Fi + mobile Suica"],
+ ["Get a Wise/Revolut card + tell your bank you're travelling"],
+ ["Travel insurance & a copy of passports"]
 ];
+// booking / official links, matched by stop title
+const LINKS=[
+ ["Sumida River walk → Tokyo Skytree",[["🎟 Skytree tickets","https://www.tokyo-skytree.jp/"]]],
+ ["Nissan Heritage Collection",[["🎟 Book tour","https://coubic.com/nissan-heritage-tour"],["ℹ Tour info","https://www.nissan.co.jp/HERITAGE/TOUR/EN/"]]],
+ ["Shibuya Sky at sunset",[["🎟 Official tickets","https://www.shibuya-scramble-square.com/sky/"],["🎟 Klook (foreign cards OK)","https://www.klook.com/activity/70672-shibuya-sky-tokyo/"]]],
+ ["Nissan Global Headquarters Gallery",[["ℹ Official site","https://www2.nissan.co.jp/GALLERY/en/HQ/"]]],
+ ["Cup Noodles Museum",[["ℹ Official site","https://www.cupnoodles-museum.jp/en/yokohama/"]]],
+ ["Umeda Sky Building",[["🎟 Kuchu Teien Observatory","https://www.kuchu-teien.com/en/"]]],
+ ["Kawasaki Good Times World",[["ℹ Official site","https://kobe-maritime-museum.com/english.html"]]],
+ ["JR Haruka to KIX",[["🎟 ICOCA & Haruka","https://www.westjr.co.jp/global/en/ticket/icoca-haruka/"]]]
+];
+const linksFor=t=>{const f=LINKS.find(l=>t.includes(l[0]));return f?f[1]:[]};
 const MONTH=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 let store={};
@@ -386,7 +402,7 @@ function render(){
       <div class="body">${d.stops.map((s,i)=>{const k=d.id+"-"+i;const done=store[k];let prev="";for(let j=i-1;j>=0;j--){if(d.stops[j][4]){prev=d.stops[j][4];break}}
         const badge=s[3]==="b"?'<span class="badge b">BOOKED</span>':s[3]==="w"?'<span class="badge w">NOTE</span>':'';
         return `<div class="stop ${s[3]==="b"?"booked":""} ${done?"done":""}"><input type="checkbox" data-k="${k}" ${done?"checked":""} aria-label="done"><div class="t">${s[0]}</div>
-        <div class="what"><b>${esc(s[1])}</b>${badge}${s[2]?`<p>${esc(s[2])}</p>`:""}${s[4]?`<div class="links"><a href="${M(s[4])}" target="_blank" rel="noopener">📍 Map</a><a href="${DIR(s[4])}" target="_blank" rel="noopener">🚆 Get there from where I am</a>${prev?`<a href="${DIR(s[4],prev)}" target="_blank" rel="noopener">↪ From previous stop</a>`:""}</div>`:""}</div></div>`}).join("")}
+        <div class="what"><b>${esc(s[1])}</b>${badge}${s[2]?`<p>${esc(s[2])}</p>`:""}${(s[4]||linksFor(s[1]).length)?`<div class="links">${linksFor(s[1]).map(l=>`<a class="book" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("")}${s[4]?`<a href="${M(s[4])}" target="_blank" rel="noopener">📍 Map</a><a href="${DIR(s[4])}" target="_blank" rel="noopener">🚆 Get there from where I am</a>${prev?`<a href="${DIR(s[4],prev)}" target="_blank" rel="noopener">↪ From previous stop</a>`:""}`:""}</div>`:""}</div></div>`}).join("")}
         ${d.note?`<div class="daynote">💡 ${esc(d.note)}</div>`:""}
         <textarea class="mynote" data-n="${d.id}" placeholder="Your notes for this day…">${esc(store["n-"+d.id]||"")}</textarea></div>`;
     el.querySelector(".dayhead").onclick=()=>el.classList.toggle("open");
@@ -397,7 +413,7 @@ function render(){
   // todo
   const td=document.getElementById("todo");td.querySelectorAll("label").forEach(l=>l.remove());
   TODO.forEach((t,i)=>{const k="t-"+i;const l=document.createElement("label");l.className=store[k]?"done":"";
-    l.innerHTML=`<input type="checkbox" ${store[k]?"checked":""}><span>${esc(t)}</span>`;
+    l.innerHTML=`<input type="checkbox" ${store[k]?"checked":""}><span>${esc(t[0])}${t[1]?` <a href="${t[1]}" target="_blank" rel="noopener">↗ link</a>`:""}</span>`;
     l.querySelector("input").onchange=e=>{store[k]=e.target.checked;l.className=e.target.checked?"done":"";save()};td.appendChild(l)});
   prog();
 }
