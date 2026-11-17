@@ -68,6 +68,11 @@ h2{font-family:"Shippori Mincho",serif;font-size:24px;margin:30px 0 10px}
 .badge{font-size:11px;font-weight:700;padding:1px 7px;border-radius:6px;margin-left:6px;vertical-align:1px}
 .badge.b{background:#f6e7b8;color:#6b4e00}
 .badge.s{background:#e3ecf7;color:#2f4b8a}
+.badge.r{background:var(--red);color:#fff;font-size:12px}
+.badge.ok{background:#dff0e3;color:#2e6b3c}
+.badge.n{background:#ece9e1;color:#6b6a75}
+.resnote{font-size:13px!important;background:#f6f3ec;border-radius:8px;padding:5px 9px;margin-top:6px!important}
+.resnote.r{background:#fde9e3;color:#7d2412!important;font-weight:500}
 .badge.w{background:#fde1d9;color:#9b2a14}
 .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .links a{font-size:12.5px;text-decoration:none;color:var(--tokyo);background:#eef2fa;border:1px solid #d6e0f2;border-radius:999px;padding:3px 10px;white-space:nowrap}
@@ -92,6 +97,14 @@ textarea.mynote{width:100%;margin-top:10px;border:1px solid var(--line);border-r
 .ghost{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;cursor:pointer;color:var(--muted)}
 footer{margin-top:40px;font-size:12.5px;color:var(--muted)}
 @media (max-width:680px){
+  header{padding:22px 18px}
+  header::after{width:150px;height:150px;right:-50px;top:-50px}
+  .kanji{font-size:26px!important;top:16px!important;right:14px!important}
+  header p{padding-right:34px;font-size:14px}
+  .stats{flex-wrap:nowrap;gap:6px}
+  .stat{padding:6px 8px;font-size:11px;flex:1;min-width:0}
+  .stat b{font-size:17px}
+
   .body{padding:0 14px 14px}
   .grid2{grid-template-columns:1fr}
   .kanji{font-size:40px;right:18px}
@@ -122,8 +135,44 @@ summary::after{content:"›";margin-left:auto;font-size:20px;color:var(--muted);
 details[open]>summary::after{transform:rotate(90deg)}
 details.panel>summary h3{margin:0}
 details.panel{align-self:start}
-.fab{position:fixed;right:16px;bottom:18px;z-index:20;background:var(--red);color:#fff;border:0;border-radius:999px;padding:12px 16px;font:inherit;font-weight:700;box-shadow:0 6px 18px rgba(200,56,31,.35);cursor:pointer}
+#packlist h4{margin:14px 0 4px;font-size:14.5px}
+.pk{display:grid;grid-template-columns:1fr auto auto;gap:6px 10px;align-items:center;padding:5px 0;border-top:1px dashed var(--line);font-size:14px}
+.pk small{color:var(--muted)}
+.pk label{display:flex;align-items:center;gap:3px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;border:0!important;padding:0!important}
+.pk input{accent-color:var(--red);width:17px;height:17px}
+.pk.done span{opacity:.5;text-decoration:line-through}
+#tips,#money{scroll-margin-top:90px}
+
+.tabs{position:sticky;top:0;z-index:15;display:flex;gap:6px;overflow-x:auto;padding:10px 0;margin:14px 0 4px;background:rgba(246,241,231,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500;white-space:nowrap}
+.tabs a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.view{display:none}.view.on{display:block}
+.view .panel h3{margin:0 0 6px;font-family:"Shippori Mincho",serif;font-size:18px}
+.panel .sub{font-size:13px;color:var(--muted);margin:0 0 8px}
+details.alert summary{padding:0;font-weight:400;font-size:14.5px}
+details.alert summary::after{color:var(--red)}
+details.alert[open] summary{margin-bottom:6px}
+.controls{position:static!important;border-bottom:0!important}
+.bkrow{display:grid;grid-template-columns:58px 52px 1fr;gap:8px;padding:7px 0;border-top:1px dashed var(--line);font-size:14px;align-items:start;cursor:pointer}
+.bkrow:first-child{border-top:0}
+.bkrow .d{font-weight:700;color:var(--ink)}
+.bkrow .tm{color:var(--muted);font-variant-numeric:tabular-nums}
+.panel ul{margin:0;padding-left:18px;font-size:14px}
+.panel li{margin:5px 0}
+h4.fh{margin:16px 0 4px;font-size:15px}
+.fd small{line-height:1.45}
+.fd small.when{color:var(--tokyo)}
+.fmap{text-decoration:none;font-size:13px}
+.fabs{position:fixed;right:16px;bottom:18px;z-index:20;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fab2{background:var(--ink)!important;box-shadow:0 6px 18px rgba(29,35,64,.3)!important}
+.fab{background:var(--red);color:#fff;border:0;border-radius:999px;padding:12px 16px;font:inherit;font-weight:700;box-shadow:0 6px 18px rgba(200,56,31,.35);cursor:pointer}
 @media (max-width:680px){.calc{grid-template-columns:1fr}.swap{display:none}}
+@media (max-width:680px){
+  .tabs{display:grid!important;grid-template-columns:repeat(6,1fr);gap:3px!important}
+  .tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px!important;font-size:10.5px!important;border-radius:12px!important}
+  .tabs .ti{font-size:18px;line-height:1}
+}
 </style>
 </head>
 <body>
@@ -135,20 +184,110 @@ details.panel{align-self:start}
     <div class="stats">
       <div class="stat"><b id="countdown">–</b>days to go</div>
       <div class="stat"><b>18</b>nights</div>
-      <div class="stat"><b>3</b>cities + 4 day trips</div>
+      <div class="stat"><b>3+4</b>cities + day trips</div>
       <div class="stat"><b>4</b>flights</div>
     </div>
   </header>
 
-  <div class="route" id="route"></div>
+  <nav class="tabs" id="tabs">
+    <a href="#plan" data-v="plan"><span class="ti">📅</span> Plan</a>
+    <a href="#bookings" data-v="bookings"><span class="ti">✅</span> Bookings</a>
+    <a href="#food" data-v="food"><span class="ti">🍜</span> Eat &amp; Buy</a>
+    <a href="#packing" data-v="packing"><span class="ti">🧳</span> Packing</a>
+    <a href="#money" data-v="money"><span class="ti">💴</span> Money</a>
+    <a href="#tips" data-v="tips"><span class="ti">💡</span> Tips</a>
+  </nav>
 
-  <section class="alerts">
-    <div class="alert"><b>⚠ New Year closures, 29 Dec–3 Jan.</b> Many museums, offices and some restaurants close. Shrines and temples stay open and are at their busiest, and convenience stores never close. Shops are mostly shut on 1 Jan, and the big department-store sales (fukubukuro lucky bags) start on 2 Jan.</div>
+  <!-- PLAN -->
+  <section class="view" id="view-plan">
+    <div class="route" id="route"></div>
+    <details class="alert"><summary><b>⚠ New Year closures, 29 Dec–3 Jan</b></summary>Many museums, offices and some restaurants close. Shrines and temples stay open and are at their busiest, and convenience stores never close. Shops are mostly shut on 1 Jan, and the big department-store sales (fukubukuro lucky bags) start on 2 Jan.</details>
+  <div class="controls">
+    <button class="chip on" data-f="all">All days</button>
+    <button class="chip" data-f="tokyo"><span class="dot" style="background:var(--tokyo)"></span>Tokyo</button>
+    <button class="chip" data-f="osaka"><span class="dot" style="background:var(--osaka)"></span>Osaka</button>
+    <button class="chip" data-f="kyoto"><span class="dot" style="background:var(--kyoto)"></span>Kyoto</button>
+    <button class="chip" data-f="booked"><span class="dot" style="background:var(--booked)"></span>Booked only</button>
+    <input class="search" id="q" placeholder="Search: ramen, shrine, Fuji…">
+    <div class="progress"><span id="ptext">0 / 0 done</span><div class="bar"><i id="pbar"></i></div>
+      <button class="ghost" id="expand">Expand all</button></div>
+  </div>
+    <div id="days"></div>
   </section>
 
+  <!-- BOOKINGS & TO-DO -->
+  <section class="view" id="view-bookings">
+    <div class="grid2">
+      <div class="panel"><h3>✓ What's booked</h3><p class="sub">Pulled from the plan automatically.</p><div id="booked"></div></div>
+      <div class="panel" id="todolist"><h3>☐ Still to book &amp; prepare</h3><p class="sub" id="todoprog"></p></div>
+    </div>
+    <div class="panel" style="margin-top:14px"><h3>🏨 Hotels</h3>
+      <ul>
+        <li><b>21–30 Dec:</b> E Hotel Higashi Shinjuku. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=E%20Hotel%20Higashi%20Shinjuku" target="_blank" rel="noopener">🚆 Back to hotel</a></span> Toei Ōedo / Fukutoshin lines at Higashi-Shinjuku Station.</li>
+        <li><b>30 Dec–3 Jan:</b> APA Hotel Osaka Higobashi Ekimae Tower. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=APA%20Hotel%20Osaka%20Higobashi%20Ekimae%20Tower" target="_blank" rel="noopener">🚆 Back to hotel</a></span> Yotsubashi line, Higobashi Station.</li>
+        <li><b>3–7 Jan:</b> Mitsui Garden Hotel Kyoto Station. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=Mitsui%20Garden%20Hotel%20Kyoto%20Station" target="_blank" rel="noopener">🚆 Back to hotel</a></span></li>
+        <li><b>7–8 Jan:</b> Narita Tobu Hotel Airport. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=Narita%20Tobu%20Hotel%20Airport" target="_blank" rel="noopener">🚆 Back to hotel</a></span> Use the hotel shuttle from the airport bus stops (check times).</li>
+      </ul>
+      </div>
+  </section>
 
-  <section class="money" id="money">
-    <h3>💴 Money &amp; yen ⇄ euro calculator</h3>
+  <!-- FOOD -->
+  <section class="view" id="view-food">
+    <div class="panel" style="margin-bottom:14px"><h3>🍜 What to eat</h3>
+      <p class="sub">The must-tries for each place, with the day you're there. Tick <b>M</b>/<b>C</b> when you've tried it. 📍 opens nearby places on Google Maps.</p>
+      <div id="foodlist"></div>
+    </div>
+    <div class="panel" style="margin-bottom:14px"><h3>🛍 Must-buys</h3>
+      <p class="sub">Souvenirs and treats worth bringing home, and where they fit your trip. Tick <b>M</b>/<b>C</b> when bought.</p>
+      <div id="shoplist"></div>
+      <div class="daynote" style="margin-top:12px">💡 <b>Shopping tips:</b> pay the full price and claim tax back at Narita customs on 8 Jan (keep tax-free items unopened, in hand luggage, and show your passport or Visit Japan Web QR when you buy). Knives and liquids over 100 ml (sake, whisky) go in <b>checked</b> luggage. Check your home country's duty-free limits for alcohol. Leave space in the suitcase!</div>
+    </div>
+    <div class="grid2">
+      <div class="panel"><h3>🥢 How eating out works</h3>
+        <ul>
+          <li><b>Ticket machines</b> at ramen and gyudon shops: pay at the machine by the door, hand the ticket to the staff. Photos help; Google Translate camera reads the buttons.</li>
+          <li><b>Queues are normal</b> and move fast. A line of locals is a good sign.</li>
+          <li><b>Reservations</b> for nicer places (Kobe beef, Christmas Eve, NYE, farewell dinner): use the restaurant's site, TableCheck or Tabelog, or ask your hotel reception.</li>
+          <li><b>Izakaya</b> (Japanese pubs) often add a small cover charge with an <i>otoshi</i> starter. That's normal, not a scam.</li>
+          <li><b>Water and tea are free</b>. You'll get a hot or cold towel (<i>oshibori</i>) to wipe your hands.</li>
+          <li><b>Slurping noodles is fine.</b> Don't stick chopsticks upright in rice or pass food chopstick to chopstick.</li>
+          <li><b>Paying:</b> take the bill to the register at the front. No tipping.</li>
+          <li><b>1–3 Jan:</b> many small restaurants close. Chains, hotel restaurants, department-store food halls (from 2 Jan) and konbini stay open.</li>
+          <li><b>If you avoid pork or alcohol:</b> pork is in most ramen broths (tonkotsu), gyoza and buns, and mirin/sake are common in sauces. Look for chicken or seafood ramen, sushi, tempura, soba/udon and halal-certified places (search "halal" in Google Maps).</li>
+        </ul>
+      </div>
+      <div class="panel"><h3>🗣 Useful phrases</h3>
+        <ul>
+          <li><b>Itadakimasu</b>: said before eating.</li>
+          <li><b>Gochisōsama deshita</b>: thank you for the meal (when leaving).</li>
+          <li><b>Osusume wa?</b>: what do you recommend?</li>
+          <li><b>Kore o kudasai</b>: this one, please (point at the menu).</li>
+          <li><b>Futari desu</b>: two people.</li>
+          <li><b>Okaikei onegaishimasu</b>: the bill, please.</li>
+          <li><b>Kanpai!</b>: cheers!</li>
+          <li><b>Oishii!</b>: delicious!</li>
+        </ul>
+        <h3 style="margin-top:14px">🏪 Konbini (7-Eleven, Lawson, FamilyMart)</h3>
+        <ul>
+          <li>Great, cheap breakfast and late snacks: <b>onigiri</b> (rice balls), <b>egg sando</b>, <b>fried chicken</b> (Famichiki, L-chiki), hot <b>oden</b> in winter, melon pan, and puddings.</li>
+          <li>Staff will heat bento for you. Open 24/7, including New Year's Day.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKING -->
+  <section class="view" id="view-packing">
+    <div class="panel"><h3>🧳 Packing list for two · Mine &amp; Carmine</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin:6px 0 10px">18 nights in winter (about 2–12 °C), 4 flights. Quantities are <b>per person</b> and assume one laundry stop about halfway (most Japanese hotels have coin laundry; ask at reception). Tick <b>M</b> for Mine and <b>C</b> for Carmine.</p>
+    <div id="packlist"></div>
+    <div class="daynote" style="margin-top:12px">💡 <b>Suitcases:</b> one medium/large suitcase each + one small backpack each is plenty. Leave about 30% empty for shopping, or pack a foldable bag. Check the baggage allowance on both domestic flights (30 Dec, 7 Jan); low-cost airlines charge for overweight bags. Power banks and spare batteries go in <b>hand luggage only</b>. Keep tax-free shopping in hand luggage on 8 Jan for customs.</div>
+    </div>
+  </section>
+
+  <!-- MONEY -->
+  <section class="view" id="view-money">
+    <div class="money"><h3>💴 Yen ⇄ euro calculator</h3>
     <div class="calc">
       <div><label for="jpy">Yen (¥)</label><input id="jpy" inputmode="decimal" value="1000"></div>
       <div class="swap">⇄</div>
@@ -156,7 +295,7 @@ details.panel{align-self:start}
     </div>
     <div class="quick" id="quick"></div>
     <div class="rate">Rate: €1 = ¥<input id="rate" inputmode="decimal" value="185"><span>(tap to edit)</span></div>
-    <details class="more"><summary>Prices, cash plan &amp; rate info</summary>
+    
     <p style="font-size:13.5px;color:var(--muted);margin:8px 0 0">Mid-market rate on 16 Nov 2026 was about ¥184–186. Change the rate any time and it's remembered on this device. Your bank's rate will be slightly worse.</p>
     <div class="grid2" style="margin-top:10px">
       <div>
@@ -176,76 +315,98 @@ details.panel{align-self:start}
         </ul>
       </div>
     </div>
-    </details>
+
+    </div>
   </section>
-  <nav class="controls">
-    <button class="chip on" data-f="all">All days</button>
-    <button class="chip" data-f="tokyo"><span class="dot" style="background:var(--tokyo)"></span>Tokyo</button>
-    <button class="chip" data-f="osaka"><span class="dot" style="background:var(--osaka)"></span>Osaka</button>
-    <button class="chip" data-f="kyoto"><span class="dot" style="background:var(--kyoto)"></span>Kyoto</button>
-    <button class="chip" data-f="booked"><span class="dot" style="background:var(--booked)"></span>Booked only</button>
-    <input class="search" id="q" placeholder="Search: ramen, shrine, Fuji…">
-    <div class="progress"><span id="ptext">0 / 0 done</span><div class="bar"><i id="pbar"></i></div>
-      <button class="ghost" id="expand">Expand all</button></div>
-  </nav>
 
-  <div id="days"></div>
-
-  <h2>Before you go</h2>
-  <div class="grid2">
-    <details class="panel" id="todo"><summary><h3>To book &amp; prepare</h3></summary></details>
-    <details class="panel"><summary><h3>Getting around</h3></summary>
+  <!-- TIPS -->
+  <section class="view" id="view-tips">
+    <div class="grid2">
+      <div class="panel"><h3>🚆 Getting around</h3>
+      <p style="font-size:13.5px;margin:4px 0 8px"><span class="badge r" style="margin:0">! RESERVE</span> marks trains that need a reserved seat: only the <b>Narita Express</b> (21 Dec &amp; 30 Dec) and the <b>Rapi:t</b> if you take it (30 Dec). Your Shinkansen (5 Jan) is already booked. Every other train, subway and bus: just tap Suica, no reservation.</p>
       <ul>
         <li><b>IC card:</b> add Suica or PASMO to your phone wallet, or buy a Welcome Suica at the airport. It works on trains, buses and in convenience stores in all three cities.</li>
-        <li><b>Shinjuku → Narita (30 Dec):</b> Narita Express from Shinjuku takes about 80–90 min. Leave about 3½ h before your flight.</li>
+        <li><b>Shinjuku → Narita (30 Dec):</b> Narita Express from Shinjuku takes about 80–90 min. Take a train around 10:00 for the 13:40 flight.</li>
         <li><b>KIX → Higobashi:</b> Nankai Rapi:t or the airport express to Namba, then the Yotsubashi subway line to Higobashi (about 1 h 15 min). The airport limousine bus is the other option.</li>
         <li><b>Osaka → Kyoto (3 Jan):</b> JR Special Rapid from Osaka Station takes about 30 min. 2–4 Jan is the return-travel peak, so go mid-morning.</li>
-        <li><b>Kyoto → KIX (7 Jan):</b> the JR Haruka express leaves from Kyoto Station, next to your hotel (about 75–80 min).</li>
+        <li><b>Kyoto → KIX (7 Jan):</b> the JR Haruka express leaves from Kyoto Station, next to your hotel (about 75–80 min). Take one around 16:30 for the 20:05 flight.</li>
         <li><b>Domestic flights:</b> low-cost carriers have strict baggage limits. Check what's included on both the NRT→KIX and KIX→NRT tickets.</li>
       </ul>
-    </details>
-    <details class="panel"><summary><h3>Winter tips</h3></summary>
+      </div>
+      <div class="panel"><h3>📱 Apps</h3>
+        <p class="sub"><b>★ Essential</b>: install and set up at home, before 21 Dec.</p>
+        <ul>
+          <li>★ <b>Google Maps</b>: the best for trains in Japan (platforms, transfers, live times). All "Get there" links open it. Download offline maps of Tokyo, Osaka and Kyoto.</li>
+          <li>★ <b>Suica in Apple Wallet</b> (iPhone): trains, buses, konbini everywhere. On Android: buy a physical Welcome Suica at Narita.</li>
+          <li>★ <b>Visit Japan Web</b> (website, save the QR screenshots): immigration, customs and tax-free shopping.</li>
+          <li>★ <b>eSIM</b> (Airalo, Ubigi, Holafly…): internet from the moment you land.</li>
+          <li>★ <b>Google Translate</b>: download Japanese offline; the camera mode reads menus and signs.</li>
+          <li>★ <b>smartEX</b>: your Shinkansen ticket for 5 Jan is in it.</li>
+          <li>★ <b>Your airline apps</b>: boarding passes for all 4 flights.</li>
+        </ul>
+        <p class="sub" style="margin-top:10px"><b>Useful</b></p>
+        <ul>
+          <li><b>GO</b> or <b>Uber</b>: taxis, only for NYE after midnight or emergencies.</li>
+          <li><b>Tabelog</b>: restaurant ratings (3.5+ is very good) and some bookings.</li>
+          <li><b>Safety tips</b>: official earthquake and weather alerts in English.</li>
+          <li><b>Klook</b>: Shibuya Sky and other tickets with foreign cards.</li>
+          <li><b>Wise / Revolut</b>: card with good exchange rates.</li>
+        </ul>
+      </div>
+      <div class="panel"><h3>🙇 Etiquette</h3>
+        <ul>
+          <li>Trains are quiet: no phone calls, low voices.</li>
+          <li>Escalators: stand <b>left</b> in Tokyo, <b>right</b> in Osaka; follow the crowd in Kyoto.</li>
+          <li>Few public bins: carry your rubbish back with you.</li>
+          <li>Shoes off when you see a raised step or slippers at the entrance.</li>
+          <li>Don't eat while walking in busy streets; eat at the stall.</li>
+          <li>At shrines: bow, coin, bow twice, clap twice, pray, bow once.</li>
+          <li>No tipping, ever. Onsen often refuse tattoos.</li>
+        </ul>
+      </div>
+      <div class="panel"><h3>❄ Winter tips</h3>
       <ul>
         <li>Expect about 2–12 °C. Days are dry and often sunny, which is the best season for clear views of Mt Fuji. Wear layers. Heattech-style base layers from Uniqlo are cheap and very good.</li>
         <li>Sunset is around 16:30. Plan outdoor sights for the morning and keep illuminations and city views for evening.</li>
         <li>Carry some cash for shrine stalls, small restaurants and offerings at hatsumode (a 5-yen coin is traditionally lucky).</li>
         <li>Shoes come off in temples and some restaurants, so bring socks without holes.</li>
       </ul>
-    </details>
-    <details class="panel"><summary><h3>Hotels</h3></summary>
-      <ul>
-        <li><b>21–30 Dec:</b> E Hotel Higashi Shinjuku. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=E%20Hotel%20Higashi%20Shinjuku" target="_blank" rel="noopener">🚆 Back to hotel</a></span> Toei Ōedo / Fukutoshin lines at Higashi-Shinjuku Station.</li>
-        <li><b>30 Dec–3 Jan:</b> APA Hotel Osaka Higobashi Ekimae Tower. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=APA%20Hotel%20Osaka%20Higobashi%20Ekimae%20Tower" target="_blank" rel="noopener">🚆 Back to hotel</a></span> Yotsubashi line, Higobashi Station.</li>
-        <li><b>3–7 Jan:</b> Mitsui Garden Hotel Kyoto Station. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=Mitsui%20Garden%20Hotel%20Kyoto%20Station" target="_blank" rel="noopener">🚆 Back to hotel</a></span></li>
-        <li><b>7–8 Jan:</b> Narita Tobu Hotel Airport. <span class="links" style="display:inline-flex"><a href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=Narita%20Tobu%20Hotel%20Airport" target="_blank" rel="noopener">🚆 Back to hotel</a></span> Use the hotel shuttle from the airport bus stops (check times).</li>
-      </ul>
-      <div class="btnrow"><button class="ghost" id="reset">Reset all ticks &amp; notes</button></div>
-    </details>
-  </div>
+    </div>
+      <div class="panel"><h3>🆘 Emergencies</h3>
+        <ul>
+          <li><b>110</b> police · <b>119</b> ambulance &amp; fire.</li>
+          <li>Japan Visitor Hotline (JNTO, 24 h, English): <b>050-3816-2787</b>.</li>
+          <li>Keep a photo of both passports and your travel insurance number on your phone.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="btnrow" style="margin-top:16px"><button class="ghost" id="reset">Reset all ticks &amp; notes</button></div>
+  </section>
 
   <footer>Directions links open Google Maps with public-transport routes. "Get there from where I am" uses your phone's location, so it works best during the trip.<br>Ticks and notes are saved in this browser only. Opening hours change around New Year, so check each official site a few days before. Sources: Kobe Maritime Museum / Kawasaki Good Times World official site and guides; Japan-guide and Osaka New Year guides.</footer>
 </div>
 
-<button class="fab" id="fab" aria-label="Yen calculator">¥ ⇄ €</button>
+<div class="fabs"><button class="fab" id="fab" aria-label="Yen calculator">¥ ⇄ €</button><button class="fab fab2" id="fabtips" aria-label="Go to tips">💡 Tips</button></div>
 <script>
 const C={tokyo:"var(--tokyo)",osaka:"var(--osaka)",kyoto:"var(--kyoto)",travel:"var(--travel)"};
 const M=(q)=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
 const DIR=(to,from)=>"https://www.google.com/maps/dir/?api=1&travelmode=transit&destination="+encodeURIComponent(to)+(from?"&origin="+encodeURIComponent(from):"");
 // s = stop: [time, title, note, kind(b=booked,s=suggested,w=warning), mapQuery]
 const DAYS=[
- {id:"d1221",date:"2026-12-21",city:"tokyo",title:"Arrive in Tokyo",tags:["Arrival"],stops:[
-  ["—","Land & get IC card","Buy a Welcome Suica or set up mobile Suica. Get a SIM/eSIM or pocket Wi-Fi.","s",""],
-  ["PM","Check in · E Hotel Higashi Shinjuku","Drop the bags and freshen up.","b","E Hotel Higashi Shinjuku"],
-  ["Eve","Shinjuku by night","Omoide Yokocho for yakitori, the Kabukicho neon, then the free night view from the Tokyo Metropolitan Government Building (check closing time).","s","Omoide Yokocho Shinjuku"],
-  ["","Early night","Go to bed at local time to beat jet lag.","s",""]],
-  note:"Keep day one light. Everything here is walkable or one stop from the hotel."},
+ {id:"d1221",date:"2026-12-21",city:"tokyo",title:"Arrive in Tokyo (Narita 19:10)",tags:["Arrival","Flight"],stops:[
+  ["19:10","✈ Land at Narita","Have your Visit Japan Web QR codes ready (immigration + customs). Allow about 45–60 min to get out with your bags.","b","Narita International Airport"],
+  ["~20:00","Suica, eSIM, cash","Set up Suica, switch on your eSIM, and take out cash at the 7-Eleven ATM in the arrivals area if needed.","s",""],
+  ["~20:30","🚆 Narita Express → Shinjuku","Direct, about 80–90 min. Pick up your N'EX TOKYO Round Trip Ticket (¥5,200 each, bought online, valid 14 days) at the JR East Travel Service Center or the ticket machines in the airport station. Bring both passports. It also covers your trip back on 30 Dec. Suica alone is not enough for N'EX. The last N'EX leaves around 21:45, so don't linger. If you miss it, take the Keisei Skyliner to Nippori and change to the JR Yamanote line for Shinjuku.","w","Narita Airport Station"],
+  ["~22:15","Shinjuku → hotel by subway","Walk from JR Shinjuku (west exit) to Shinjuku-nishiguchi station, then the Toei Ōedo line 1 stop to Higashi-shinjuku. About 15 min in total; use the station lifts with luggage. Take a taxi only if you're exhausted (about 10 min).","s","E Hotel Higashi Shinjuku"],
+  ["~22:30","Check in · E Hotel Higashi Shinjuku","","b","E Hotel Higashi Shinjuku"],
+  ["Late","Late bite","A convenience store next door, or a 24-hour ramen or gyudon shop nearby. Then sleep!","s",""]],
+  note:"A long travel day. Keep a change of clothes and toiletries in your hand luggage."},
  {id:"d1222",date:"2026-12-22",city:"tokyo",title:"Old Tokyo: Asakusa & Skytree",tags:["Temples","Views"],stops:[
   ["08:30","Sensō-ji & Nakamise-dōri","Tokyo's oldest temple. It's calm early, before the shops open around 10.","s","Senso-ji Asakusa"],
   ["11:00","Sumida River walk → Tokyo Skytree","Walk 20 min over the river. Go up the Skytree, or just enjoy Solamachi mall.","s","Tokyo Skytree"],
   ["13:00","Lunch: monjayaki or tempura","Asakusa is known for both.","s","Asakusa tempura"],
   ["15:30","Ueno & Ameyoko market","Street food and bargains under the train tracks.","s","Ameyoko Ueno"],
-  ["Eve","Dinner in Ueno or back in Shinjuku","","s",""],
-  ["Option","🏎 Nissan Heritage Collection, Zama (swap for the afternoon)","About 300–400 historic Nissans: Skylines, GT-Rs, race cars. Weekday tours only, about 90 min, by reservation only (max 5 people per booking). Booking is on Nissan's tour site. About an hour from Shinjuku. If you get a slot, move Ueno to another day.","w","Nissan Heritage Collection Zama"]]},
+  ["Eve","Dinner in Ueno or back in Shinjuku","","s",""]]},
  {id:"d1223",date:"2026-12-23",city:"tokyo",title:"Harajuku, Shibuya + Sumo night",tags:["Sumo","Booked"],stops:[
   ["09:00","Meiji Jingu shrine","Peaceful forest shrine. Go early.","s","Meiji Jingu"],
   ["10:30","Takeshita Street & Omotesando","Crêpes, quirky fashion, then the elegant Omotesando avenue.","s","Takeshita Street Harajuku"],
@@ -254,12 +415,17 @@ const DAYS=[
   ["18:30","Early dinner","Eat before the show. Try chanko-nabe, the sumo wrestlers' hotpot.","s",""],
   ["20:00","Sumo show with drink & photo","Arrive 20–30 min early. Have the ticket QR ready.","b",""]],
   note:"Check how long it takes to get from Shibuya to the sumo venue, and leave a buffer."},
- {id:"d1224",date:"2026-12-24",city:"tokyo",title:"teamLab Borderless + Christmas Eve lights",tags:["Booked","Illuminations"],stops:[
-  ["08:30","teamLab Borderless · Azabudai Hills","Allow 2–3 h. Morning entry. Wear trousers (mirrored floors) and comfy shoes.","b","teamLab Borderless Azabudai Hills"],
-  ["12:00","Lunch at Azabudai Hills","","s","Azabudai Hills"],
-  ["13:30","Tokyo Tower & Zōjō-ji temple","The classic photo of a temple in front of the tower.","s","Zojoji Temple"],
-  ["16:00","Roppongi Hills · Keyakizaka illumination","One of Tokyo's best Christmas light streets.","s","Roppongi Keyakizaka illumination"],
-  ["Eve","Christmas Eve dinner","Christmas Eve is a date night in Japan and restaurants fill up, so reserve a table.","w",""]]},
+ {id:"d1224",date:"2026-12-24",city:"tokyo",title:"teamLab Borderless + Christmas Eve dinner",tags:["Booked","Illuminations"],stops:[
+  ["08:30","teamLab Borderless · Azabudai Hills","Morning entry. Allow 2–3 h. Wear trousers (mirrored floors) and comfy shoes.","b","teamLab Borderless Azabudai Hills"],
+  ["11:30","Lunch at Azabudai Hills","Food hall and cafés in the same complex. Keep it light, big dinner tonight!","s","Azabudai Hills"],
+  ["12:30","Tokyo Tower & Zōjō-ji (optional, 15 min walk)","The classic temple-in-front-of-the-tower photo, if you have energy.","s","Zojoji Temple"],
+  ["13:30","Back to the hotel to rest (nap!)","Toei Ōedo line from Azabu-jūban (or Roppongi) straight to Higashi-shinjuku, about 20 min, no change.","s","E Hotel Higashi Shinjuku"],
+  ["18:30","Ōedo line to Roppongi","Same line, no change, about 15 min. Dress up a little for dinner.","s","Roppongi Station"],
+  ["19:00","Christmas lights · Roppongi Hills & Keyakizaka","One of Tokyo's best Christmas illuminations, with Tokyo Tower glowing at the end of the street. Romantic photos!","s","Roppongi Keyakizaka illumination"],
+  ["20:00","Pre-dinner drink or Tokyo City View (optional)","A cocktail in Roppongi, or the Roppongi Hills observation deck for the night view (check hours). Leave at 20:45 for dinner.","s","Tokyo City View Roppongi Hills"],
+  ["21:00","🎄 Christmas Eve dinner · Yakiniku USHIGORO Nishiazabu","Reserved for 21:00. Arrive on time; Japanese restaurants are strict. Premium wagyu yakiniku: you grill the beef yourselves at the table (staff often help). About a 10-min walk from Roppongi. Dress smart-casual.","b","Yakiniku USHIGORO Nishiazabu"],
+  ["~23:00","Back to the hotel","Toei Ōedo line from Roppongi direct to Higashi-shinjuku (about 15 min). Last trains are around midnight, so don't linger past 23:30. If you miss it: taxi, about 15 min.","s","Roppongi Station"]],
+  note:"Christmas Eve is a couples' night in Japan, with lights everywhere and restaurants fully booked. Lucky you have a table!"},
  {id:"d1225",date:"2026-12-25",city:"tokyo",title:"Mt Fuji bus day trip",tags:["Booked","Day trip","Fuji"],stops:[
   ["Early","Get to Tokyo Mode Gakuen (Cocoon Tower), Nishi-Shinjuku","The tour's meeting point. From the hotel, the Ōedo line goes direct to Shinjuku-Nishiguchi (1 stop), then it's a short walk. Check your voucher for the exact meeting time and be there 15 min early.","w","Tokyo Mode Gakuen Cocoon Tower"],
   ["Day","Mt Fuji bus tour","Follow the tour's programme. Bring warm layers, gloves, snacks and a charged phone. It's much colder near Fuji than in Tokyo.","b",""],
@@ -290,19 +456,21 @@ const DAYS=[
   ["10:00","Ameyoko year-end market","At its liveliest now, as locals shop for New Year food.","s","Ameyoko"],
   ["13:00","Last shopping: Don Quijote, Uniqlo, drugstores","Tax-free shopping needs your passport.","s",""],
   ["Eve","Pack + check flight & baggage allowance","Weigh your bags for the low-cost flight tomorrow.","w",""]]},
- {id:"d1230",date:"2026-12-30",city:"travel",title:"Narita ✈ KIX → Osaka",tags:["Flight","Travel"],stops:[
-  ["AM","Check out → Narita Express from Shinjuku","About 80–90 min. Leave about 3½ h before departure.","w","Shinjuku Station"],
-  ["—","Flight Narita → Kansai (KIX)","","b","Narita Airport"],
-  ["PM","KIX → Higobashi","Rapi:t to Namba + Yotsubashi line, or the limousine bus.","s","Kansai International Airport"],
-  ["PM","Check in · APA Hotel Osaka Higobashi Ekimae Tower","","b","APA Hotel Osaka Higobashi Ekimae Tower"],
-  ["Eve","Dōtonbori & the Glico sign","Takoyaki, okonomiyaki and kushikatsu. Osaka is Japan's kitchen.","s","Dotonbori"]]},
+ {id:"d1230",date:"2026-12-30",city:"travel",title:"Narita ✈ KIX 13:40 → Osaka",tags:["Flight","Travel"],stops:[
+  ["09:30","Check out → subway to Shinjuku","Toei Ōedo line from Higashi-shinjuku, 1 stop to Shinjuku-nishiguchi, then walk to the JR Narita Express platforms (follow the red N'EX signs). Allow 20–25 min with luggage.","s","Higashi-shinjuku Station"],
+  ["~10:00","🚆 Narita Express Shinjuku → Narita","About 80–90 min. Use the return half of your round-trip ticket. Reserve the seat ahead at a JR ticket machine (free with the pass), because trains are busy on 30 Dec as people leave Tokyo for New Year.","w","Shinjuku Station"],
+  ["~11:45","Arrive at Narita · check in","Check your airline's terminal (T1, T2 or T3). Domestic check-in usually closes 30–45 min before departure; aim to be there 1½–2 h early. Low-cost airlines weigh bags strictly.","w","Narita Airport"],
+  ["13:40","✈ Flight Narita → Kansai (KIX)","About 1½ h. Arrive around 15:15.","b","Narita Airport"],
+  ["~15:30","KIX → Higobashi","Nankai Rapi:t or airport express to Namba, then the Yotsubashi subway line to Higobashi (about 1 h 15 min), or the airport limousine bus.","s","Kansai International Airport"],
+  ["~17:00","Check in · APA Hotel Osaka Higobashi Ekimae Tower","","b","APA Hotel Osaka Higobashi Ekimae Tower"],
+  ["Eve","Dōtonbori & the Glico sign","Takoyaki, okonomiyaki and kushikatsu. Osaka is Japan's kitchen. Higobashi → Namba is 3 stops on the Yotsubashi line.","s","Dotonbori"]]},
  {id:"d1231",date:"2026-12-31",city:"osaka",title:"Osaka Castle & New Year's Eve",tags:["NYE"],stops:[
   ["09:30","Osaka Castle & park","The grounds are always open. Check whether the main tower opens today.","w","Osaka Castle"],
   ["12:30","Kuromon Market","Packed with year-end shoppers. Try fresh seafood skewers.","s","Kuromon Market"],
   ["15:00","Rest at the hotel","It's a late night.","s",""],
   ["Eve","Toshikoshi soba","Eat buckwheat noodles on NYE for a long life.","s",""],
   ["23:00","Joya-no-kane: temple bells at midnight","Shitennō-ji is a good choice. The other option is the USJ countdown, which needs a special ticket.","s","Shitennoji Temple"]],
-  note:"Check the last-train and special NYE train times before you head out. Taxis are scarce after midnight."},
+  note:"Check the last-train and special NYE train times before you head out. The subway stops around midnight, so plan to walk or take a taxi (book in the GO app) after midnight."},
  {id:"d0101",date:"2027-01-01",city:"osaka",title:"New Year's Day · Hatsumōde",tags:["Hatsumode"],stops:[
   ["10:00","Sumiyoshi Taisha","Osaka's great shrine, with millions of visitors in the first days. Cross the arched Sorihashi bridge and buy an omikuji fortune.","s","Sumiyoshi Taisha"],
   ["13:00","Lunch","Most shops are closed today. Hotel restaurants, chains and konbini are open.","w",""],
@@ -322,64 +490,173 @@ const DAYS=[
   ["07:30","Fushimi Inari Taisha","Go early to beat the crowds. The full hike takes 2–3 h, or turn back at Yotsutsuji viewpoint.","s","Fushimi Inari Taisha"],
   ["11:30","Train to Arashiyama · lunch","Try yudofu (tofu hot-pot).","s","Arashiyama"],
   ["13:00","Bamboo grove, Tenryū-ji & Togetsukyō bridge","","s","Arashiyama Bamboo Grove"],
-  ["16:00","Kinkaku-ji (Golden Pavilion)","It closes at 17:00, so a taxi from Arashiyama saves time.","s","Kinkaku-ji"]]},
+  ["16:00","Kinkaku-ji (Golden Pavilion)","It closes at 17:00. From Arashiyama, take the Kyoto City Bus (about 40 min), and leave by 15:15.","s","Kinkaku-ji"]]},
  {id:"d0105",date:"2027-01-05",city:"kyoto",title:"Day trip: Kobe · Kawasaki museum",tags:["Booked","Day trip","Kawasaki","Shinkansen"],stops:[
   ["08:30","Be at Kyoto Station Shinkansen gates","Have the smartEX QR code / ticket ready in the app. Grab an ekiben (station bento box) for the ride. Eating on board is normal.","w","Kyoto Station Shinkansen"],
   ["08:47","🚄 Shinkansen NOZOMI 5 · Kyoto → Shin-Kobe (arr. 09:14)","Booked via smartEX for 2 adults. Times are confirmed about a month before travel, so check your email around 5 Dec in case they change slightly.","b","Kyoto Station Shinkansen"],
-  ["09:15","Shin-Kobe → Meriken Park","Subway 2 min to Sannomiya, then walk about 20 min or take a taxi (about 10 min) to the Kobe Maritime Museum.","s","Shin-Kobe Station"],
+  ["09:15","Shin-Kobe → Meriken Park","Subway 2 min to Sannomiya, then the Kaigan line to Minato-motomachi and a 5-min walk, or walk about 20 min from Sannomiya.","s","Shin-Kobe Station"],
   ["10:00","Kawasaki Good Times World + Kobe Maritime Museum","Kawasaki's own motorbike & engineering museum. One ticket covers both. Motorbike and jet-ski simulators, Shinkansen and aircraft exhibits. Open 10:00–18:00 (last entry 17:30). Closed Mondays and 29 Dec–3 Jan, which is why it's here and not in the Osaka days.","s","Kawasaki Good Times World Kobe"],
   ["12:30","Kobe beef lunch","Reserve a teppanyaki lunch set, which is much cheaper than dinner.","s","Kobe beef Sannomiya"],
   ["14:00","Nankinmachi (Chinatown) & Kitano foreign houses","","s","Nankinmachi Kobe"],
   ["16:30","Harborland & Port Tower at sunset","","s","Kobe Port Tower"],
   ["Eve","Back to Kyoto","Take the JR Special Rapid (about 50 min from Sannomiya or Motomachi, cheaper), or the Shinkansen again from Shin-Kobe.","s","Motomachi Station Kobe"]],
   note:"5 Jan is a Tuesday. The museum is closed on Mondays and during New Year (29 Dec–3 Jan), so this is the earliest open day in your trip. 6 Jan also works."},
- {id:"d0106",date:"2027-01-06",city:"kyoto",title:"Nara deer + Kyoto evening",tags:["Day trip"],stops:[
-  ["08:30","JR Nara line to Nara","About 45 min.","s","Nara Station"],
-  ["09:30","Nara Park deer & Tōdai-ji Great Buddha","Bow to the deer and they bow back. Shika senbei crackers are for sale.","s","Todai-ji"],
-  ["12:00","Kasuga Taisha & Naramachi lunch","","s","Kasuga Taisha"],
-  ["15:00","Back in Kyoto · Nishiki Market","Shops reopen after New Year.","s","Nishiki Market"],
-  ["Eve","Farewell dinner in Pontochō","A lantern-lit alley along the river.","s","Pontocho Kyoto"]]},
- {id:"d0107",date:"2027-01-07",city:"travel",title:"KIX ✈ Narita · last night",tags:["Flight"],stops:[
-  ["AM","Check out → JR Haruka to KIX","About 75–80 min from Kyoto Station, right by your hotel.","w","Kyoto Station Haruka"],
-  ["—","Flight Kansai → Narita","","b","Kansai International Airport"],
-  ["PM","Narita Tobu Hotel Airport","Take the hotel shuttle from the airport.","b","Narita Tobu Hotel Airport"],
-  ["Eve","Naritasan Shinshō-ji & Omotesandō (optional)","A grand temple and an old street known for eel (unagi). About 15 min by train.","s","Naritasan Shinshoji"]]},
- {id:"d0108",date:"2027-01-08",city:"travel",title:"Narita ✈ Istanbul",tags:["Flight","Departure"],stops:[
-  ["—","Check out · hotel shuttle to the terminal","Be at check-in about 3 h before an international flight.","w",""],
-  ["—","Spend leftover yen at the airport","Konbini, Royce chocolate, Tokyo Banana.","s",""],
-  ["—","Flight to Istanbul ✈","İyi yolculuklar, Mine & Carmine! ♡","b","Narita Airport Terminal 1"]]}
+ {id:"d0106",date:"2027-01-06",city:"kyoto",title:"Day trip: Nara 🦌 + Kyoto evening",tags:["Day trip","Nara"],stops:[
+  ["08:30","JR Nara line: Kyoto → Nara","About 45 min on the Miyakoji Rapid from Kyoto Station, near your hotel. IC card (Suica) works.","s","Kyoto Station"],
+  ["09:30","Kōfuku-ji five-storey pagoda","On the way from the station into Nara Park.","s","Kofuku-ji Nara"],
+  ["10:00","Nara Park deer","Bow to the deer and they bow back. Buy shika senbei crackers from the stalls, and hold them up high, because the deer can nip.","s","Nara Park"],
+  ["10:45","Tōdai-ji Great Buddha (Daibutsu)","One of the world's largest wooden buildings, with a huge bronze Buddha inside. Try squeezing through the hole in the pillar for luck.","s","Todai-ji"],
+  ["12:30","Lunch in Naramachi","The old merchant quarter. Watch the high-speed mochi pounding at Nakatanidō near Kintetsu Nara Station.","s","Nakatanidou Nara"],
+  ["14:00","Kasuga Taisha","A shrine with thousands of stone and bronze lanterns, in a forest setting.","s","Kasuga Taisha"],
+  ["15:30","Train back to Kyoto","","s","JR Nara Station"],
+  ["17:00","Nishiki Market","Most shops reopen after New Year. Go before about 18:00, when many close.","s","Nishiki Market"],
+  ["Eve","Farewell dinner in Pontochō","A lantern-lit alley along the river.","s","Pontocho Kyoto"]],
+  note:"Nara is compact and walkable. Wear comfy shoes, and keep paper bags and maps away from the deer, because they'll eat them."},
+ {id:"d0107",date:"2027-01-07",city:"travel",title:"Last Kyoto morning · KIX ✈ Narita 20:05",tags:["Flight"],stops:[
+  ["08:30","Check out (leave bags at the hotel)","Hotels keep luggage after check-out for free.","s","Mitsui Garden Hotel Kyoto Station"],
+  ["09:00","Sanjūsangen-dō","1,001 golden statues of Kannon in one long hall. City bus 206 or 208 from Kyoto Station (about 10 min), or a 20-min walk.","s","Sanjusangendo"],
+  ["10:30","Philosopher's Path → Ginkaku-ji (Silver Pavilion)","A quiet canal walk to a beautiful moss and sand garden. Or Nanzen-ji with its old aqueduct.","s","Ginkakuji"],
+  ["13:00","Lunch + Kyoto souvenirs","Kyoto Station has plenty: the Porta underground mall and the Isetan food hall (matcha sweets, yatsuhashi).","s","Kyoto Station Isetan"],
+  ["16:00","Collect bags at the hotel","","s","Mitsui Garden Hotel Kyoto Station"],
+  ["~16:30","🚆 JR Haruka Kyoto → KIX","About 75–80 min. Arrive about 18:00, 2 h before the flight.","w","Kyoto Station Haruka"],
+  ["20:05","✈ Flight Kansai → Narita","Arrive around 21:35.","b","Kansai International Airport"],
+  ["~22:00","Narita Tobu Hotel Airport","Check the last hotel shuttle time. If you've missed it, a taxi takes about 10 min.","b","Narita Tobu Hotel Airport"],
+  ["Night","Pack & sleep","Put tax-free purchases in your hand luggage, unopened, for customs tomorrow. Set the alarm for 06:15.","w",""]],
+  note:"The flight is in the evening, so you have most of the day in Kyoto. Leave your bags at the hotel and collect them around 16:00."},
+ {id:"d0108",date:"2027-01-08",city:"travel",title:"Narita ✈ Istanbul (10:15)",tags:["Flight","Departure"],stops:[
+  ["06:15","Wake up · quick breakfast","Check out the evening before if the hotel allows it.","s",""],
+  ["06:45","Hotel shuttle → terminal","Check the shuttle times and which terminal your airline uses (T1, T2 or T3).","w","Narita Tobu Hotel Airport"],
+  ["07:15","At the airport (3 h before)","First do the customs tax-free refund for your shopping (Visit Japan Web QR), before check-in, with the items in your hand luggage. Then check in and drop your bags.","w","Narita Airport"],
+  ["08:30","Security & passport control","Spend the last yen in duty free: Royce chocolate, Tokyo Banana, KitKats.","s",""],
+  ["10:15","Flight to Istanbul ✈","İyi yolculuklar, Mine & Carmine! ♡","b","Narita International Airport"]]}
 ];
 const TODO=[
  ["Register on Visit Japan Web (immigration & customs QR, tax-free QR)","https://vjw-lp.digital.go.jp/en/"],
  ["Locate the sumo show venue and plan the route from Shibuya on 23 Dec"],
  ["Book Shibuya Sky sunset slot for 23 Dec (opens ~25 Nov)","https://www.shibuya-scramble-square.com/sky/"],
- ["Reserve Christmas Eve dinner (24 Dec)"],
  ["Check Fuji tour meeting time at Tokyo Mode Gakuen (25 Dec)"],
- ["Optional: book Nissan Heritage Collection tour, Zama (weekday)","https://coubic.com/nissan-heritage-tour"],
  ["Optional: Tokyo Skytree timed tickets (22 Dec)","https://www.tokyo-skytree.jp/"],
- ["Check baggage allowance on both domestic flights"],
+ ["Check baggage allowance + terminal on both domestic flights (30 Dec 13:40, 7 Jan 20:05)"],
+ ["Buy N'EX TOKYO Round Trip Ticket online now (¥5,200 each); reserve the 30 Dec seat from 30 Nov; pick up at Narita station with passports","https://www.eki-net.com/en/jreast-train-reservation/Top/Index"],
  ["Plan NYE route + last trains in Osaka (31 Dec)"],
  ["Reserve Kobe beef lunch (5 Jan)"],
  ["Check smartEX email ~5 Dec: Nozomi 5 times confirmed (5 Jan)"],
  ["Buy ICOCA & Haruka for the KIX trip on 7 Jan","https://www.westjr.co.jp/global/en/ticket/icoca-haruka/"],
  ["Check Narita Tobu Hotel shuttle times"],
- ["Online check-in for the Istanbul flight (8 Jan)"],
+ ["Online check-in for the Istanbul flight (8 Jan, 10:15)"],
  ["eSIM / pocket Wi-Fi + mobile Suica"],
  ["Get a Wise/Revolut card + tell your bank you're travelling"],
  ["Travel insurance & a copy of passports"]
 ];
 // booking / official links, matched by stop title
 const LINKS=[
+ ["🚆 Narita Express → Shinjuku",[["🎟 Buy N'EX ticket online","https://www.eki-net.com/en/jreast-train-reservation/Top/Index"],["ℹ Ticket info","https://www.jreast.co.jp/multi/en/pass/nex.html"]]],
+ ["🚆 Narita Express Shinjuku → Narita",[["🎟 Reserve seat (from 30 Nov)","https://www.eki-net.com/en/jreast-train-reservation/Top/Index"]]],
  ["Sumida River walk → Tokyo Skytree",[["🎟 Skytree tickets","https://www.tokyo-skytree.jp/"]]],
- ["Nissan Heritage Collection",[["🎟 Book tour","https://coubic.com/nissan-heritage-tour"],["ℹ Tour info","https://www.nissan.co.jp/HERITAGE/TOUR/EN/"]]],
  ["Shibuya Sky at sunset",[["🎟 Official tickets","https://www.shibuya-scramble-square.com/sky/"],["🎟 Klook (foreign cards OK)","https://www.klook.com/activity/70672-shibuya-sky-tokyo/"]]],
  ["Nissan Global Headquarters Gallery",[["ℹ Official site","https://www2.nissan.co.jp/GALLERY/en/HQ/"]]],
  ["Cup Noodles Museum",[["ℹ Official site","https://www.cupnoodles-museum.jp/en/yokohama/"]]],
  ["Umeda Sky Building",[["🎟 Kuchu Teien Observatory","https://www.kuchu-teien.com/en/"]]],
  ["Kawasaki Good Times World",[["ℹ Official site","https://kobe-maritime-museum.com/english.html"]]],
- ["JR Haruka to KIX",[["🎟 ICOCA & Haruka","https://www.westjr.co.jp/global/en/ticket/icoca-haruka/"]]]
+ ["JR Haruka Kyoto → KIX",[["🎟 ICOCA & Haruka","https://www.westjr.co.jp/global/en/ticket/icoca-haruka/"]]]
 ];
 const linksFor=t=>{const f=LINKS.find(l=>t.includes(l[0]));return f?f[1]:[]};
+// trains that need a reserved seat
+const RES=[
+ ["🚆 Narita Express → Shinjuku","! RESERVED SEAT","All seats on the N'EX are reserved. You get your seat when you buy the ticket at the airport."],
+ ["🚆 Narita Express Shinjuku → Narita","! RESERVE AHEAD","All seats are reserved. Reserve this seat a few days before at any JR ticket machine (free with the round-trip ticket), because 30 Dec is very busy."],
+ ["🚄 Shinkansen NOZOMI 5","✓ RESERVED","Already booked via smartEX."],
+ ["KIX → Higobashi","! IF RAPI:T","The Nankai Rapi:t has reserved seats only. Buy the seat ticket at the Nankai counter or machine at KIX, no need to book ahead. The ordinary Nankai airport express needs no reservation (just tap Suica)."],
+ ["🚆 JR Haruka Kyoto → KIX","NO RESERVATION","The ICOCA & Haruka discount is for the non-reserved cars. Be on the platform about 10 min early to get seats together."]
+];
+const resFor=t=>RES.find(r=>t.includes(r[0]));
+// packing list: [category, [[item, qty/note], ...]]
+const PACK=[
+ ["👕 Clothes (per person)",[
+  ["Thermal base layers: long-sleeve tops","3"],["Thermal leggings / long johns","2"],["T-shirts / tops","5"],["Warm jumpers / fleece","2"],
+  ["Trousers / jeans","3 (trousers for teamLab, mirrored floors)"],["Underwear","7–8"],["Socks, no holes! (shoes come off in temples)","7–8 pairs"],
+  ["Pyjamas / loungewear","1"],["Smart outfit for NYE & honeymoon dinners","1 + shoes"]]],
+ ["🧥 Outerwear & shoes",[
+  ["Warm winter coat (wear it on the plane)","1"],["Light packable down jacket / extra layer","1"],["Hat, scarf, gloves","1 set (cold at Fuji & midnight on NYE)"],
+  ["Comfy walking shoes, waterproof","1 pair (15,000+ steps a day)"],["Easy slip-on shoes","1 pair (temples, ryokan-style entrances)"],["Compact umbrella","1 per couple (or buy at a konbini)"]]],
+ ["🧴 Toiletries & health",[
+  ["Skincare, lip balm, hand cream","winter air is very dry"],["Toothbrush & toiletries","hotels usually provide basics"],
+  ["Painkillers, cold & stomach medicine, plasters","small kit"],["Prescription medicines + copy of prescription","check Japan's rules: some cold medicines (pseudoephedrine) and codeine are restricted"],
+  ["Hand sanitiser + pocket tissues","many toilets lack paper towels"],["Small hand towel (tenugui)","Japanese people carry one"]]],
+ ["🔌 Tech",[
+  ["Phone + charger","1"],["Plug adapter type A (two flat pins)","2 per couple"],["Multi-USB charger","1 per couple"],
+  ["Power bank","1 each, hand luggage only"],["eSIM installed before departure","1 each"]]],
+ ["📄 Documents & money",[
+  ["Passports (valid for the whole trip)","1"],["Visit Japan Web QR codes (screenshot)","1"],["Flight, hotel, Shinkansen & tour bookings (screenshots/PDF)","1 set"],
+  ["2 bank cards (Visa + Mastercard), kept separately","2"],["Wise/Revolut card","1"],["Travel insurance details","1"],["A few euros for the trip home","—"]]],
+ ["🎒 Day bag",[
+  ["Small backpack or crossbody bag","1"],["Coin purse (lots of ¥100/¥500 coins)","1"],["Foldable shopping bag","1 (shops charge for bags)"],
+  ["Small bag for rubbish","1 (few public bins)"],["Reusable water bottle","1"]]]
+];
+// food: [place & days, [[dish, what it is, when/where, maps query], ...]]
+const FOOD=[
+ ["🗼 Tokyo · 21–30 Dec",[
+  ["Sushi","Fresh nigiri, at the counter or conveyor-belt (Sushiro, Kura).","Tsukiji Outer Market, 26 Dec breakfast","sushi Tsukiji Outer Market"],
+  ["Ramen","Shoyu (soy), shio (salt), miso or rich tonkotsu (pork). Ichiran has private booths.","Shinjuku, any night","ramen Shinjuku"],
+  ["Tempura","Crispy battered prawns and vegetables.","Asakusa, 22 Dec","tempura Asakusa"],
+  ["Monjayaki","Tokyo's runny savoury pancake, cooked on your table.","Tsukishima or Asakusa","monjayaki Tsukishima"],
+  ["Yakitori","Grilled chicken skewers with a beer.","Omoide Yokocho, 21 Dec or any night","yakitori Omoide Yokocho"],
+  ["Tonkatsu","Breaded pork cutlet with shredded cabbage.","Shinjuku / Ginza","tonkatsu Shinjuku"],
+  ["Chanko-nabe","Sumo wrestlers' hearty hotpot.","Before the sumo show, 23 Dec","chanko nabe Tokyo"],
+  ["Hōtō noodles","Thick noodles in miso pumpkin stew, Yamanashi's winter dish.","Fuji trip, 25 Dec (if the tour stops for lunch)","hoto Kawaguchiko"],
+  ["Xiaolongbao & pork buns","Street food in Japan's biggest Chinatown.","Yokohama, 27 Dec","Yokohama Chinatown xiaolongbao"],
+  ["Christmas cake & KFC","A Japanese Christmas tradition: strawberry shortcake and fried chicken!","24 Dec, just for fun","Christmas cake Tokyo"]]],
+ ["🏯 Osaka · 30 Dec–3 Jan (Japan's kitchen)",[
+  ["Takoyaki","Hot octopus balls with sauce and bonito flakes. Careful, very hot inside!","Dōtonbori, 30 Dec","takoyaki Dotonbori"],
+  ["Okonomiyaki","Savoury cabbage pancake grilled at your table.","Dōtonbori / Namba","okonomiyaki Namba"],
+  ["Kushikatsu","Fried skewers. Rule: dip in the shared sauce only once, never twice!","Shinsekai, 1 Jan","kushikatsu Shinsekai"],
+  ["Toshikoshi soba","Buckwheat noodles eaten on New Year's Eve for a long life.","31 Dec dinner","soba Osaka"],
+  ["Ozōni & osechi","New Year soup with mochi and the colourful New Year boxes (hotel restaurants, department stores).","1–2 Jan","osechi Osaka"],
+  ["551 Hōrai butaman","Osaka's famous steamed pork buns (they contain pork).","Namba / Osaka Station","551 Horai Namba"],
+  ["Rikuro's cheesecake","Jiggly, fluffy Japanese cheesecake, baked fresh.","Namba","Rikuro cheesecake Namba"],
+  ["Kuromon Market","Seafood skewers, grilled scallops, wagyu bites.","31 Dec (very busy, very fun)","Kuromon Market"]]],
+ ["⛩ Kyoto · 3–7 Jan",[
+  ["Matcha everything","Matcha soft serve, parfait, tea ceremony sweets.","Higashiyama, 3 Jan; Nishiki, 6 Jan","matcha parfait Gion"],
+  ["Yudōfu","Simmered tofu hotpot, a calm temple-style meal.","Arashiyama lunch, 4 Jan","yudofu Arashiyama"],
+  ["Kaiseki (or obanzai)","Multi-course seasonal Kyoto cuisine. Obanzai is the homestyle, cheaper version.","Farewell dinner in Pontochō, 6 Jan (book!)","kaiseki Pontocho"],
+  ["Kyoto ramen","Rich chicken-soy ramen near Kyoto Station (Ramen Kōji, 10th floor).","Any evening at the station","Kyoto Ramen Koji"],
+  ["Nishiki Market snacks","Tamagoyaki, tako tamago (baby octopus), mochi, pickles.","6 Jan afternoon","Nishiki Market"],
+  ["Yatsuhashi","Cinnamon rice-dough sweets, the classic Kyoto souvenir.","Kyoto Station, 7 Jan","yatsuhashi Kyoto Station"]]],
+ ["🦌 Kobe & Nara · 5–6 Jan",[
+  ["Kobe beef","World-famous marbled wagyu. Teppanyaki lunch sets are much cheaper than dinner.","Kobe, 5 Jan lunch (reserve)","Kobe beef teppanyaki lunch Sannomiya"],
+  ["Nankinmachi street food","Kobe's Chinatown: buns, dumplings, Peking duck wraps.","Kobe, 5 Jan","Nankinmachi Kobe"],
+  ["Yomogi mochi at Nakatanidō","Fresh green mochi pounded at high speed. Watch the show!","Nara, 6 Jan","Nakatanidou Nara"],
+  ["Kakinoha-zushi","Sushi wrapped in persimmon leaves, a Nara speciality.","Nara, 6 Jan","kakinoha sushi Nara"]]],
+ ["🍡 Snacks & sweets anywhere",[
+  ["Taiyaki","Fish-shaped waffle filled with red bean or custard.","Street stalls","taiyaki"],
+  ["Melon pan","Sweet crunchy bread from bakeries.","Bakeries, konbini","melon pan bakery"],
+  ["Japanese Kit Kats","Matcha, sake, strawberry… flavours you won't find at home.","Don Quijote, airports","Don Quijote"],
+  ["Ekiben","Bento boxes made for train trips.","Kyoto Station before the Shinkansen, 5 Jan","ekiben Kyoto Station"],
+  ["Depachika","Department-store food halls: beautiful bento and sweets.","Umeda/Namba (from 2 Jan), Kyoto Station Isetan","depachika Umeda"]]]
+];
+const SHOP=[
+ ["🍫 Food gifts",[
+  ["Japanese Kit Kats","Matcha, sake, strawberry, regional flavours. Cheapest at Don Quijote.","Don Quijote (Shinjuku, Dōtonbori), airports","Don Quijote Shinjuku"],
+  ["Tokyo Banana & Royce chocolate","The classic Tokyo gifts; Royce Nama chocolate needs to stay cool.","Narita airport, 8 Jan","Tokyo Banana Tokyo Station"],
+  ["Matcha & Uji tea","Real ceremonial matcha powder and tea from Uji, near Kyoto.","Kyoto: Nishiki Market, Kyoto Station","matcha shop Kyoto"],
+  ["Yatsuhashi & Kyoto sweets","Cinnamon rice-dough sweets in pretty boxes.","Kyoto Station, 7 Jan","yatsuhashi Kyoto Station"],
+  ["Japanese whisky or sake","Nice bottles at department stores and airports. Checked luggage only.","Department stores, duty free","sake shop Kyoto"]]],
+ ["🎎 Traditional & meaningful",[
+  ["Goshuinchō (temple stamp book)","A beautiful honeymoon keepsake: collect a calligraphy stamp at each shrine and temple you visit.","Buy one at the first big temple (Sensō-ji, 22 Dec)","Senso-ji goshuin"],
+  ["Omamori (shrine charms)","Charms for love, luck, safe travel. Couples often buy matching ones (enmusubi = love/marriage).","Meiji Jingu 23 Dec, Yasaka Shrine 3 Jan, Kasuga Taisha 6 Jan","Meiji Jingu omamori"],
+  ["Japanese kitchen knife","Handmade knives engraved with your name. Checked luggage only.","Aritsugu at Nishiki Market (Kyoto), Kappabashi (Tokyo)","Aritsugu Nishiki Market"],
+  ["Chopsticks & ceramics","Lacquered chopsticks (often engraved) and tea cups, rice bowls.","Kiyomizu-zaka (Kyoto, 3 Jan), Asakusa","Kiyomizu-zaka ceramics"],
+  ["Tenugui & furoshiki","Printed cotton towels and wrapping cloths; light and easy to pack.","Asakusa, Kyoto","tenugui shop Asakusa"]]],
+ ["💄 Beauty & everyday",[
+  ["Japanese skincare","Hada Labo, Biore UV sunscreen, Melano CC, sheet masks, Shiseido.","Matsumoto Kiyoshi, Don Quijote, any drugstore","Matsumoto Kiyoshi Shinjuku"],
+  ["Stationery","Pens, notebooks and washi tape: Japan's stationery is the best.","Itoya Ginza (26 Dec), Loft","Itoya Ginza"],
+  ["Uniqlo / GU / Muji","Heattech, cashmere, and Japan-only items, cheaper than at home.","Ginza, Shinjuku, Shinsaibashi","Uniqlo Ginza"],
+  ["100-yen shops","Daiso and Seria: fun, cheap kitchen and home goods.","Everywhere","Daiso Shinjuku"]]],
+ ["🎁 Fun & unique",[
+  ["Fukubukuro (lucky bags)","Sealed mystery bags sold at New Year sales. You don't know what's inside, but they're worth more than you pay.","Osaka department stores, 2 Jan","fukubukuro Umeda"],
+  ["Anime, games, gacha","Figures, retro games, capsule toys; Pokémon Center.","Akihabara 28 Dec, Den Den Town (Osaka)","Akihabara"],
+  ["Onitsuka Tiger sneakers","Japan-made models and colours not sold abroad.","Ginza, Shinsaibashi","Onitsuka Tiger Ginza"]]]
+];
 const MONTH=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 let store={};
@@ -400,9 +677,9 @@ function render(){
     el.innerHTML=`<div class="dayhead"><div class="date" style="background:${C[d.city]}"><div class="m">${WD[dt.getDay()]}</div><div class="d">${dt.getDate()}</div><div class="m">${MONTH[dt.getMonth()]}</div></div>
       <div class="dtitle"><h3>${esc(d.title)}</h3><small>${cityName}</small><div class="tags">${d.tags.map(t=>`<span class="tag ${t==="Booked"?"bk":""}">${t}</span>`).join("")}</div></div><span class="chev">›</span></div>
       <div class="body">${d.stops.map((s,i)=>{const k=d.id+"-"+i;const done=store[k];let prev="";for(let j=i-1;j>=0;j--){if(d.stops[j][4]){prev=d.stops[j][4];break}}
-        const badge=s[3]==="b"?'<span class="badge b">BOOKED</span>':s[3]==="w"?'<span class="badge w">NOTE</span>':'';
+        const badge=s[3]==="b"?'<span class="badge b">BOOKED</span>':s[3]==="w"?'<span class="badge w">NOTE</span>':'';const rs=resFor(s[1]);const rbadge=rs?`<span class="badge ${rs[1].startsWith("!")?"r":rs[1].startsWith("✓")?"ok":"n"}">${rs[1]}</span>`:"";const rnote=rs?`<p class="resnote ${rs[1].startsWith("!")?"r":""}">🎫 ${esc(rs[2])}</p>`:"";
         return `<div class="stop ${s[3]==="b"?"booked":""} ${done?"done":""}"><input type="checkbox" data-k="${k}" ${done?"checked":""} aria-label="done"><div class="t">${s[0]}</div>
-        <div class="what"><b>${esc(s[1])}</b>${badge}${s[2]?`<p>${esc(s[2])}</p>`:""}${(s[4]||linksFor(s[1]).length)?`<div class="links">${linksFor(s[1]).map(l=>`<a class="book" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("")}${s[4]?`<a href="${M(s[4])}" target="_blank" rel="noopener">📍 Map</a><a href="${DIR(s[4])}" target="_blank" rel="noopener">🚆 Get there from where I am</a>${prev?`<a href="${DIR(s[4],prev)}" target="_blank" rel="noopener">↪ From previous stop</a>`:""}`:""}</div>`:""}</div></div>`}).join("")}
+        <div class="what"><b>${esc(s[1])}</b>${rbadge}${badge}${s[2]?`<p>${esc(s[2])}</p>`:""}${rnote}${(s[4]||linksFor(s[1]).length)?`<div class="links">${linksFor(s[1]).map(l=>`<a class="book" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("")}${s[4]?`<a href="${M(s[4])}" target="_blank" rel="noopener">📍 Map</a><a href="${DIR(s[4])}" target="_blank" rel="noopener">🚆 Get there from where I am</a>${prev?`<a href="${DIR(s[4],prev)}" target="_blank" rel="noopener">↪ From previous stop</a>`:""}`:""}</div>`:""}</div></div>`}).join("")}
         ${d.note?`<div class="daynote">💡 ${esc(d.note)}</div>`:""}
         <textarea class="mynote" data-n="${d.id}" placeholder="Your notes for this day…">${esc(store["n-"+d.id]||"")}</textarea></div>`;
     el.querySelector(".dayhead").onclick=()=>el.classList.toggle("open");
@@ -411,10 +688,10 @@ function render(){
   box.querySelectorAll("input[data-k]").forEach(cb=>cb.onchange=()=>{store[cb.dataset.k]=cb.checked;cb.closest(".stop").classList.toggle("done",cb.checked);save();prog()});
   box.querySelectorAll("textarea").forEach(t=>t.oninput=()=>{store["n-"+t.dataset.n]=t.value;save()});
   // todo
-  const td=document.getElementById("todo");td.querySelectorAll("label").forEach(l=>l.remove());
+  const td=document.getElementById("todolist");td.querySelectorAll("label").forEach(l=>l.remove());
   TODO.forEach((t,i)=>{const k="t-"+i;const l=document.createElement("label");l.className=store[k]?"done":"";
     l.innerHTML=`<input type="checkbox" ${store[k]?"checked":""}><span>${esc(t[0])}${t[1]?` <a href="${t[1]}" target="_blank" rel="noopener">↗ link</a>`:""}</span>`;
-    l.querySelector("input").onchange=e=>{store[k]=e.target.checked;l.className=e.target.checked?"done":"";save()};td.appendChild(l)});
+    l.querySelector("input").onchange=e=>{store[k]=e.target.checked;l.className=e.target.checked?"done":"";save();todoProg()};td.appendChild(l)});todoProg();
   prog();
 }
 function prog(){const all=document.querySelectorAll("input[data-k]");const n=[...all].filter(c=>c.checked).length;
@@ -428,11 +705,11 @@ document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{document.querySelec
 document.getElementById("q").oninput=apply;
 let exp=false;document.getElementById("expand").onclick=e=>{exp=!exp;document.querySelectorAll(".day").forEach(d=>d.classList.toggle("open",exp));e.target.textContent=exp?"Collapse all":"Expand all"};
 let armed=false;document.getElementById("reset").onclick=e=>{if(!armed){armed=true;e.target.textContent="Click again to confirm";setTimeout(()=>{armed=false;e.target.textContent="Reset all ticks & notes"},3000);return}
-  store={};save();armed=false;e.target.textContent="Reset all ticks & notes";render();apply()};
+  store={};save();armed=false;e.target.textContent="Reset all ticks & notes";render();renderPack();renderFood();renderShop();apply()};
 // route bar
 const segs=[["tokyo","Tokyo","21–30 Dec",9,"d1221"],["osaka","Osaka","30 Dec–3 Jan",4,"d1230"],["kyoto","Kyoto","3–7 Jan",4,"d0103"],["travel","Narita","7–8 Jan",1,"d0107"]];
 document.getElementById("route").innerHTML=segs.map(s=>`<div class="seg" data-go="${s[4]}" style="flex:${s[3]};background:${C[s[0]]}"><b>${s[1]}</b>${s[2]}</div>`).join("");
-document.querySelectorAll(".seg").forEach(s=>s.onclick=()=>{const d=document.getElementById(s.dataset.go);d.classList.add("open");d.scrollIntoView({behavior:"smooth",block:"start"})});
+document.querySelectorAll(".seg").forEach(s=>s.onclick=()=>{go("plan");const d=document.getElementById(s.dataset.go);d.classList.add("open");d.scrollIntoView({behavior:"smooth",block:"start"})});
 // countdown
 (function(){const start=new Date("2026-12-21T00:00:00+09:00");const diff=Math.ceil((start-new Date())/864e5);
   document.getElementById("countdown").textContent=diff>0?diff:(new Date()<new Date("2027-01-09")?"On trip!":"✓")})();
@@ -456,9 +733,50 @@ document.querySelectorAll(".seg").forEach(s=>s.onclick=()=>{const d=document.get
   const P=[["Onigiri at a convenience store",200],["Coffee",500],["Metro / train ride in the city",250],["Bowl of ramen",1200],["Conveyor-belt sushi for two",5000],["Shrine offering / omikuji fortune",200],["Temple entry (e.g. Kinkaku-ji)",500],["Kobe beef lunch set (each)",8000],["Coin locker (large)",700],["Taxi, short ride",1500]];
   window.prices=function(){document.getElementById("prices").innerHTML=P.map(p=>`<tr><td>${p[0]}</td><td class="n">¥${p[1].toLocaleString("en-GB")}</td><td class="e">€${fe(p[1]/rate())}</td></tr>`).join("")};
   prices();fromJ();
-  document.getElementById("fab").onclick=()=>{document.getElementById("money").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>J.focus(),400)};
+  document.getElementById("fabtips").onclick=()=>go("tips");
+  document.getElementById("fab").onclick=()=>{go("money");setTimeout(()=>J.focus(),200)};
 })();
 render();
+
+// tabs / views
+const VIEWS=["plan","bookings","food","packing","money","tips"];
+function show(v){if(!VIEWS.includes(v))v="plan";document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id==="view-"+v));document.querySelectorAll(".tabs a").forEach(a=>a.classList.toggle("on",a.dataset.v===v))}
+function go(v){if(location.hash!=="#"+v){location.hash=v}else show(v);document.getElementById("tabs").scrollIntoView({block:"start"})}
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+document.querySelectorAll(".tabs a").forEach(a=>a.onclick=e=>{e.preventDefault();go(a.dataset.v)});
+show(location.hash.slice(1));
+function todoProg(){const all=document.querySelectorAll("#todolist input");const n=[...all].filter(c=>c.checked).length;const el=document.getElementById("todoprog");if(el)el.textContent=`${n} of ${all.length} done`}
+// bookings overview
+(function(){const box=document.getElementById("booked");let h="";
+ DAYS.forEach(d=>{const dt=new Date(d.date+"T12:00:00");d.stops.forEach(s=>{if(s[3]!=="b")return;
+  h+=`<div class="bkrow" data-go="${d.id}"><span class="d">${dt.getDate()} ${MONTH[dt.getMonth()]}</span><span class="tm">${s[0]}</span><span>${esc(s[1])}</span></div>`})});
+ box.innerHTML=h;box.querySelectorAll(".bkrow").forEach(r=>r.onclick=()=>{go("plan");const el=document.getElementById(r.dataset.go);el.classList.add("open");setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),50)});
+})();
+
+// render packing list
+function renderPack(){const box=document.getElementById("packlist");let h="";
+ PACK.forEach((c,ci)=>{h+=`<h4>${c[0]}</h4>`;c[1].forEach((it,ii)=>{const k="p-"+ci+"-"+ii;const m=store[k+"m"],w=store[k+"c"];
+  h+=`<div class="pk ${m&&w?"done":""}" data-k="${k}"><span>${esc(it[0])} <small>· ${esc(it[1])}</small></span><label><input type="checkbox" data-p="${k}m" ${m?"checked":""}>M</label><label><input type="checkbox" data-p="${k}c" ${w?"checked":""}>C</label></div>`})});
+ box.innerHTML=h;
+ box.querySelectorAll("input[data-p]").forEach(cb=>cb.onchange=()=>{store[cb.dataset.p]=cb.checked;save();const row=cb.closest(".pk");const k=row.dataset.k;row.classList.toggle("done",!!(store[k+"m"]&&store[k+"c"]))});
+}
+renderPack();
+function renderFood(){const box=document.getElementById("foodlist");let h="";
+ FOOD.forEach((c,ci)=>{h+=`<h4 class="fh">${c[0]}</h4>`;c[1].forEach((it,ii)=>{const k="f-"+ci+"-"+ii;const m=store[k+"m"],w=store[k+"c"];
+  h+=`<div class="pk fd ${m&&w?"done":""}" data-k="${k}"><span><b>${esc(it[0])}</b> <a class="fmap" href="${M(it[3])}" target="_blank" rel="noopener">📍</a><br><small>${esc(it[1])}</small><br><small class="when">🗓 ${esc(it[2])}</small></span><label><input type="checkbox" data-p="${k}m" ${m?"checked":""}>M</label><label><input type="checkbox" data-p="${k}c" ${w?"checked":""}>C</label></div>`})});
+ box.innerHTML=h;
+ box.querySelectorAll("input[data-p]").forEach(cb=>cb.onchange=()=>{store[cb.dataset.p]=cb.checked;save();const row=cb.closest(".pk");const k=row.dataset.k;row.classList.toggle("done",!!(store[k+"m"]&&store[k+"c"]))});
+}
+renderFood();
+
+function renderShop(){const box=document.getElementById("shoplist");let h="";
+ SHOP.forEach((c,ci)=>{h+=`<h4 class="fh">${c[0]}</h4>`;c[1].forEach((it,ii)=>{const k="s-"+ci+"-"+ii;const m=store[k+"m"],w=store[k+"c"];
+  h+=`<div class="pk fd ${m&&w?"done":""}" data-k="${k}"><span><b>${esc(it[0])}</b> <a class="fmap" href="${M(it[3])}" target="_blank" rel="noopener">📍</a><br><small>${esc(it[1])}</small><br><small class="when">🗓 ${esc(it[2])}</small></span><label><input type="checkbox" data-p="${k}m" ${m?"checked":""}>M</label><label><input type="checkbox" data-p="${k}c" ${w?"checked":""}>C</label></div>`})});
+ box.innerHTML=h;
+ box.querySelectorAll("input[data-p]").forEach(cb=>cb.onchange=()=>{store[cb.dataset.p]=cb.checked;save();const row=cb.closest(".pk");const k=row.dataset.k;row.classList.toggle("done",!!(store[k+"m"]&&store[k+"c"]))});
+}
+renderShop();
+
 const t=document.querySelector(".day.today");if(t)setTimeout(()=>t.scrollIntoView({behavior:"smooth"}),300);
 </script>
 </body>
